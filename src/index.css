@@ -14,3 +14,17 @@
 .text-inter {
   font-family: 'Inter', sans-serif;
 }
+
+/* Input design  */
+
+.input-label {
+  @apply text-[#333] text-2xl font-medium
+}
+
+.input-field {
+  @apply input input-bordered w-full text-lg
+}
+
+.common-btn {
+  @apply flex items-center justify-center gap-[10px] font-semibold text-2xl text-center border border-[#6078EA] bg-[#6078EA] rounded-lg py-4 px-6 text-white transition-all duration-300 ease-in-out
+}
