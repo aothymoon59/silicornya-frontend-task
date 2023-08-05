@@ -71,7 +71,7 @@ const Register = () => {
                         className="common-btn w-full"
                     >
 
-                        Next
+                        OK
 
                     </button>
                     <p className="text-center mt-12 font-medium text-2xl">

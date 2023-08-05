@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import InformationPage from '../Register/InformationPage';
 import { Link } from 'react-router-dom';
+import SecurityPage from '../Register/SecurityPage';
 
 const steps = ['Information', 'Security', 'Confirmation'];
 
@@ -33,24 +34,24 @@ export default function HorizontalLinearStepper() {
         setSkipped(newSkipped);
     };
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
+    // const handleBack = () => {
+    //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    // };
 
-    const handleSkip = () => {
-        if (!isStepOptional(activeStep)) {
-            // You probably want to guard against something like this,
-            // it should never occur unless someone's actively trying to break something.
-            throw new Error("You can't skip a step that isn't optional.");
-        }
+    // const handleSkip = () => {
+    //     if (!isStepOptional(activeStep)) {
+    //         // You probably want to guard against something like this,
+    //         // it should never occur unless someone's actively trying to break something.
+    //         throw new Error("You can't skip a step that isn't optional.");
+    //     }
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped((prevSkipped) => {
-            const newSkipped = new Set(prevSkipped.values());
-            newSkipped.add(activeStep);
-            return newSkipped;
-        });
-    };
+    //     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    //     setSkipped((prevSkipped) => {
+    //         const newSkipped = new Set(prevSkipped.values());
+    //         newSkipped.add(activeStep);
+    //         return newSkipped;
+    //     });
+    // };
 
     const handleReset = () => {
         setActiveStep(0);
@@ -89,7 +90,8 @@ export default function HorizontalLinearStepper() {
                 </React.Fragment>
             ) : (
                 <React.Fragment>
-                    {activeStep === 0 && <InformationPage activeStep={activeStep} steps={steps} handleNext={handleNext} />}
+                    {activeStep === 0 && <InformationPage />}
+                    {activeStep === 1 && <SecurityPage />}
                     <button className="common-btn w-full max-w-[800px] mx-auto" onClick={handleNext}>
                         {activeStep === steps.length - 1 ? 'Finish' : "Next"}
                     </button>
